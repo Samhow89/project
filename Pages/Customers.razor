@@ -1,0 +1,196 @@
+﻿@page "/customers"
+
+<PageTitle>Customers</PageTitle>
+
+@using DataLibrary
+@using crm_project.Models
+@using Microsoft.Extensions.Configuration
+@inject IDataAccess _data
+@inject IConfiguration _config
+
+
+<h3>Customers</h3>
+
+@if (customers == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Company</th>
+                <th>Created at </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in customers)
+            {
+                <tr>
+                    <td>@customer.name</td>
+                    <td>@customer.email</td>
+                    <td>@customer.phone</td>
+                    <td>@customer.address</td>
+                    <td>@customer.company</td>
+                    <td>@customer.created_at</td>
+                    <td>
+                        <button class="btn btn-warning" @onclick="() => OpenUpdateModal(customer)">Update</button>
+                        <button class="btn btn-danger" @onclick="() => DeleteCustomer(customer)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<button class="btn add-new-customer">
+    <a href="customerdata">
+        Add New Customer
+    </a>
+</button>
+   
+
+<!-- Modal for update customer -->
+<div class="modal" tabindex="-1" role="dialog" style="display: @(showUpdateModal ? "block" : "none")">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Customer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" @onclick="CloseUpdateModal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" class="form-control" @bind="selectedCustomer.name" />
+                </div>
+
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" class="form-control" @bind="selectedCustomer.email" />
+                </div>
+
+                <div class="form-group">
+                    <label>Phone:</label>
+                    <input type="text" class="form-control" @bind="selectedCustomer.phone" />
+                </div>
+
+                <div class="form-group">
+                    <label>Address:</label>
+                    <input type="text" class="form-control" @bind="selectedCustomer.address" />
+                </div>
+
+                <div class="form-group">
+                    <label>Company:</label>
+                    <input type="text" class="form-control" @bind="selectedCustomer.company" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" @onclick="UpdateCustomer">Save</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" @onclick="CloseUpdateModal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    List<CustomersModel>? customers;
+    CustomersModel newCustomer = new CustomersModel();
+    CustomersModel selectedCustomer = new CustomersModel();
+    bool showUpdateModal = false;
+
+    private async Task InsertDataAsync()
+    {
+        string sql = "INSERT INTO customers (name, email, phone, address, company, created_at) " +
+                     "VALUES (@name, @email, @phone, @address, @company, @created_at)";
+
+        DateTime now = DateTime.Now; // Get the current date and time
+
+        // Create a parameter object with the form data
+        var parameters = new
+        {
+            newCustomer.name,
+            newCustomer.email,
+            newCustomer.phone,
+            newCustomer.address,
+            newCustomer.company,
+            created_at = now
+        };
+
+        await _data.SaveData(sql, parameters, _config.GetConnectionString("default"));
+
+        // Reload data after insertion
+        await LoadCustomers();
+        newCustomer = new CustomersModel();
+    }
+
+    private async Task UpdateCustomer()
+    {
+        string sql = "UPDATE customers " +
+                     "SET name = @name, email = @email, " +
+                     "phone = @phone, address = @address, company = @company " +
+                     "WHERE id = @id";
+
+        // Create a parameter object with the updated values
+        var parameters = new
+        {
+            selectedCustomer.name,
+            selectedCustomer.email,
+            selectedCustomer.phone,
+            selectedCustomer.address,
+            selectedCustomer.company,
+            selectedCustomer.id
+        };
+
+        await _data.SaveData(sql, parameters, _config.GetConnectionString("default"));
+
+        // Reload data after update
+        await LoadCustomers();
+
+        // Close the update modal
+        CloseUpdateModal();
+    }
+
+    private void OpenUpdateModal(CustomersModel customer)
+    {
+        selectedCustomer = customer;
+        showUpdateModal = true;
+    }
+
+    private void CloseUpdateModal()
+    {
+        showUpdateModal = false;
+    }
+
+    private async Task DeleteCustomer(CustomersModel customer)
+    {
+        string sql = "DELETE FROM customers WHERE id = @id";
+
+        // Create a parameter object with the customer's ID
+        var parameters = new
+        {
+            customer.id
+        };
+
+        await _data.SaveData(sql, parameters, _config.GetConnectionString("default"));
+
+        // Reload data after deletion
+        await LoadCustomers();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadCustomers();
+    }
+
+    private async Task LoadCustomers()
+    {
+        string sql = "SELECT * FROM customers";
+        customers = await _data.LoadData<CustomersModel, dynamic>(sql, new { }, _config.GetConnectionString("default"));
+    }
+}

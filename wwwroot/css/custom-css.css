@@ -1,0 +1,57 @@
+﻿.link-text a {
+    color: red;
+    text-decoration: none;
+}
+
+    .link-text a:hover {
+        text-decoration: underline;
+        color: green;
+    }
+
+.header {
+    background-color: #05173D !important;
+}
+
+ .header a {
+        color: #fff;
+        text-decoration:none;
+    }
+    .header a:hover {
+        color:red;
+        text-decoration:underline;
+    }
+.centered-block {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+.cust-login-btn{
+    background-color:#000;
+    color:#fff
+}
+.cust-login-btn:hover{
+    background-color:grey;
+    color:#000
+}
+.foot {
+    background-color: #000;
+    text-align: center;
+}
+.foot p {
+        opacity: 0.7;
+        font-style: italic;
+        color: #fff;
+    }
+
+.add-new-customer{
+    background-color:#000
+}
+.add-new-customer a{
+    text-decoration:none;
+    color:#fff
+}
+.add-new-customer:hover, .add-new-customer a:hover{
+   background-color:grey;
+       color:#000;
+}
+

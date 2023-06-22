@@ -1,0 +1,52 @@
+﻿@using crm_project.Authentication
+@inherits LayoutComponentBase
+
+
+
+<PageTitle>crm-proj-blazor</PageTitle>
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+    <main>
+        <div class="top-row header px-4">
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            <a href="login" target="_self">Login</a>
+        </div>
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+<footer class="foot">
+    <div class="container p-3">
+        <div class="row">
+            <div class="col-4">
+                <a href="https://www.placesforpeople.co.uk/find-a-home/homes-to-rent" target="_blank">
+                    <img style="height:70px" src="./images/pfp2-logo.PNG" />
+                </a>
+            </div>
+            <div class="col-4">
+                <a href="https://www.multiverse.io/en-GB" target="_blank">
+                    <img style="height:70px" src="./images/multiverse-logo.PNG" />
+                </a>
+            </div>
+            <div class="col-4" style="display:flex; align-items:center">
+                <p>Project Created By Toussaint, Sam, Ramon & Emmanuel</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : "";
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    private bool IsLoggedIn => false;
+}

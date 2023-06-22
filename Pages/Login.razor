@@ -1,0 +1,24 @@
+﻿@page "/login"
+@inherits crm_project.Login
+@inject NavigationManager navMenu
+
+
+<h3>Login</h3>
+
+@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <p>@ErrorMessage</p>
+}
+
+<div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" @bind="Username" />
+</div>
+
+<div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" @bind="Password" />
+</div>
+
+<button @onclick="HandleLogin">Login</button>
+

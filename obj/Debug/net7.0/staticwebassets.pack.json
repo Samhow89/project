@@ -1,0 +1,97 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/obj/Debug/net7.0/scopedcss/projectbundle/crm_project.bundle.scp.css",
+      "PackagePath": "staticwebassets/crm_project.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/css/.DS_Store",
+      "PackagePath": "staticwebassets/css/.DS_Store"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/css/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/css/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/css/custom-css.css",
+      "PackagePath": "staticwebassets/css/custom-css.css"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/css/open-iconic/FONT-LICENSE",
+      "PackagePath": "staticwebassets/css/open-iconic"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/css/open-iconic/ICON-LICENSE",
+      "PackagePath": "staticwebassets/css/open-iconic"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/css/open-iconic/README.md",
+      "PackagePath": "staticwebassets/css/open-iconic/README.md"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets/css/open-iconic/font/css/open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/css/open-iconic/font/fonts/open-iconic.eot",
+      "PackagePath": "staticwebassets/css/open-iconic/font/fonts/open-iconic.eot"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/css/open-iconic/font/fonts/open-iconic.otf",
+      "PackagePath": "staticwebassets/css/open-iconic/font/fonts/open-iconic.otf"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/css/open-iconic/font/fonts/open-iconic.svg",
+      "PackagePath": "staticwebassets/css/open-iconic/font/fonts/open-iconic.svg"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf",
+      "PackagePath": "staticwebassets/css/open-iconic/font/fonts/open-iconic.ttf"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/css/open-iconic/font/fonts/open-iconic.woff",
+      "PackagePath": "staticwebassets/css/open-iconic/font/fonts/open-iconic.woff"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/images/multiverse-logo.PNG",
+      "PackagePath": "staticwebassets/images/multiverse-logo.PNG"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/images/pfp-logo.PNG",
+      "PackagePath": "staticwebassets/images/pfp-logo.PNG"
+    },
+    {
+      "Id": "/Users/ramon.almeida/Documents/ConnectingToMySQL/crm_project/wwwroot/images/pfp2-logo.PNG",
+      "PackagePath": "staticwebassets/images/pfp2-logo.PNG"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.build.crm_project.props",
+      "PackagePath": "build\\crm_project.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.crm_project.props",
+      "PackagePath": "buildMultiTargeting\\crm_project.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.crm_project.props",
+      "PackagePath": "buildTransitive\\crm_project.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.crm_project.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
